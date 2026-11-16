@@ -1,0 +1,362 @@
+{
+  "info": {
+    "name": "Recomendador Musical — API",
+    "description": "Endpoints del sistema de recomendación (Programación I, UADE). Cambiá la variable baseUrl para apuntar a PythonAnywhere.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:5000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Datos",
+      "item": [
+        {
+          "name": "Listar usuarios",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/usuarios",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "usuarios"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                  "const d = pm.response.json();",
+                  "pm.test(\"Hay 5 usuarios\", () => pm.expect(d).to.have.lengthOf(5));",
+                  "pm.test(\"Tienen id_usuario y username\", () => pm.expect(d[0]).to.have.keys(\"id_usuario\", \"username\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Listar temas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/temas",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "temas"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                  "const d = pm.response.json();",
+                  "pm.test(\"Hay 10 temas\", () => pm.expect(d).to.have.lengthOf(10));",
+                  "pm.test(\"Tienen id_tema, nombre y autor\", () => pm.expect(d[0]).to.have.keys(\"id_tema\", \"nombre\", \"autor\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Listar ratings",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ratings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ratings"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                  "const d = pm.response.json();",
+                  "pm.test(\"Hay 25 ratings\", () => pm.expect(d).to.have.lengthOf(25));",
+                  "pm.test(\"Incluyen username, tema y autor\", () => pm.expect(d[0]).to.include.keys(\"username\", \"tema\", \"autor\"));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Recomendaciones",
+      "item": [
+        {
+          "name": "Todos los usuarios",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/recomendaciones",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "recomendaciones"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                  "const d = pm.response.json();",
+                  "pm.test(\"Una entrada por usuario\", () => pm.expect(d).to.have.lengthOf(5));",
+                  "pm.test(\"5 recomendaciones cada uno\", () => d.forEach(u => pm.expect(u.recomendaciones).to.have.lengthOf(5)));",
+                  "pm.test(\"Ordenadas por score\", () => d.forEach(u => {",
+                  "  const s = u.recomendaciones.map(r => r.score);",
+                  "  pm.expect(s).to.eql([...s].sort((a, b) => b - a));",
+                  "}));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Un usuario",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/recomendaciones/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "recomendaciones",
+                "1"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Es el usuario 1\", () => pm.expect(pm.response.json().id_usuario).to.eql(1));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Un usuario con seed (reproducible)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/recomendaciones/1?seed=42",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "recomendaciones",
+                "1"
+              ],
+              "query": [
+                {
+                  "key": "seed",
+                  "value": "42"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                  "const actual = JSON.stringify(pm.response.json());",
+                  "const previo = pm.collectionVariables.get(\"seed42\");",
+                  "if (previo) {",
+                  "  pm.test(\"Mismo seed, mismo resultado\", () => pm.expect(actual).to.eql(previo));",
+                  "} else {",
+                  "  pm.collectionVariables.set(\"seed42\", actual);",
+                  "  pm.test(\"Resultado guardado: ejecutá de nuevo para comparar\", () => true);",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Descargar CSV (Kaggle)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/recomendaciones.csv?seed=42",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "recomendaciones.csv"
+              ],
+              "query": [
+                {
+                  "key": "seed",
+                  "value": "42"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                  "const lineas = pm.response.text().trim().split(/\\r?\\n/);",
+                  "pm.test(\"Encabezado id,rating\", () => pm.expect(lineas[0]).to.eql(\"id,rating\"));",
+                  "pm.test(\"25 filas de datos\", () => pm.expect(lineas.length - 1).to.eql(25));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Errores",
+      "item": [
+        {
+          "name": "Usuario inexistente → 404",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/recomendaciones/99",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "recomendaciones",
+                "99"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 404\", () => pm.response.to.have.status(404));",
+                  "pm.test(\"Devuelve mensaje de error\", () => pm.expect(pm.response.json()).to.have.property(\"error\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seed inválido → 400",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/recomendaciones?seed=abc",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "recomendaciones"
+              ],
+              "query": [
+                {
+                  "key": "seed",
+                  "value": "abc"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 400\", () => pm.response.to.have.status(400));",
+                  "pm.test(\"Devuelve mensaje de error\", () => pm.expect(pm.response.json()).to.have.property(\"error\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "URL inexistente → 404",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/canciones",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "canciones"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 404\", () => pm.response.to.have.status(404));",
+                  "pm.test(\"Devuelve mensaje de error\", () => pm.expect(pm.response.json()).to.have.property(\"error\"));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,252 @@
+[
+    {
+        "id_usuario": 1,
+        "id_tema": 1,
+        "rating": 4
+    },
+    {
+        "id_usuario": 1,
+        "id_tema": 2,
+        "rating": 4
+    },
+    {
+        "id_usuario": 1,
+        "id_tema": 3,
+        "rating": 3
+    },
+    {
+        "id_usuario": 1,
+        "id_tema": 4,
+        "rating": 5
+    },
+    {
+        "id_usuario": 1,
+        "id_tema": 5,
+        "rating": 2
+    },
+    {
+        "id_usuario": 1,
+        "id_tema": 6,
+        "rating": 4
+    },
+    {
+        "id_usuario": 1,
+        "id_tema": 7,
+        "rating": 4
+    },
+    {
+        "id_usuario": 1,
+        "id_tema": 8,
+        "rating": 4
+    },
+    {
+        "id_usuario": 1,
+        "id_tema": 9,
+        "rating": 4
+    },
+    {
+        "id_usuario": 1,
+        "id_tema": 10,
+        "rating": 5
+    },
+    {
+        "id_usuario": 2,
+        "id_tema": 1,
+        "rating": 5
+    },
+    {
+        "id_usuario": 2,
+        "id_tema": 2,
+        "rating": 4
+    },
+    {
+        "id_usuario": 2,
+        "id_tema": 3,
+        "rating": 3
+    },
+    {
+        "id_usuario": 2,
+        "id_tema": 4,
+        "rating": 4
+    },
+    {
+        "id_usuario": 2,
+        "id_tema": 5,
+        "rating": 2
+    },
+    {
+        "id_usuario": 2,
+        "id_tema": 6,
+        "rating": 4
+    },
+    {
+        "id_usuario": 2,
+        "id_tema": 7,
+        "rating": 3
+    },
+    {
+        "id_usuario": 2,
+        "id_tema": 8,
+        "rating": 4
+    },
+    {
+        "id_usuario": 2,
+        "id_tema": 9,
+        "rating": 3
+    },
+    {
+        "id_usuario": 2,
+        "id_tema": 10,
+        "rating": 5
+    },
+    {
+        "id_usuario": 3,
+        "id_tema": 1,
+        "rating": 5
+    },
+    {
+        "id_usuario": 3,
+        "id_tema": 2,
+        "rating": 4
+    },
+    {
+        "id_usuario": 3,
+        "id_tema": 3,
+        "rating": 2
+    },
+    {
+        "id_usuario": 3,
+        "id_tema": 4,
+        "rating": 3
+    },
+    {
+        "id_usuario": 3,
+        "id_tema": 5,
+        "rating": 4
+    },
+    {
+        "id_usuario": 3,
+        "id_tema": 6,
+        "rating": 5
+    },
+    {
+        "id_usuario": 3,
+        "id_tema": 7,
+        "rating": 5
+    },
+    {
+        "id_usuario": 3,
+        "id_tema": 8,
+        "rating": 4
+    },
+    {
+        "id_usuario": 3,
+        "id_tema": 9,
+        "rating": 3
+    },
+    {
+        "id_usuario": 3,
+        "id_tema": 10,
+        "rating": 3
+    },
+    {
+        "id_usuario": 4,
+        "id_tema": 1,
+        "rating": 3
+    },
+    {
+        "id_usuario": 4,
+        "id_tema": 2,
+        "rating": 3
+    },
+    {
+        "id_usuario": 4,
+        "id_tema": 3,
+        "rating": 2
+    },
+    {
+        "id_usuario": 4,
+        "id_tema": 4,
+        "rating": 3
+    },
+    {
+        "id_usuario": 4,
+        "id_tema": 5,
+        "rating": 4
+    },
+    {
+        "id_usuario": 4,
+        "id_tema": 6,
+        "rating": 5
+    },
+    {
+        "id_usuario": 4,
+        "id_tema": 7,
+        "rating": 4
+    },
+    {
+        "id_usuario": 4,
+        "id_tema": 8,
+        "rating": 2
+    },
+    {
+        "id_usuario": 4,
+        "id_tema": 9,
+        "rating": 3
+    },
+    {
+        "id_usuario": 4,
+        "id_tema": 10,
+        "rating": 3
+    },
+    {
+        "id_usuario": 5,
+        "id_tema": 1,
+        "rating": 4
+    },
+    {
+        "id_usuario": 5,
+        "id_tema": 2,
+        "rating": 4
+    },
+    {
+        "id_usuario": 5,
+        "id_tema": 3,
+        "rating": 3
+    },
+    {
+        "id_usuario": 5,
+        "id_tema": 4,
+        "rating": 4
+    },
+    {
+        "id_usuario": 5,
+        "id_tema": 5,
+        "rating": 2
+    },
+    {
+        "id_usuario": 5,
+        "id_tema": 6,
+        "rating": 5
+    },
+    {
+        "id_usuario": 5,
+        "id_tema": 7,
+        "rating": 5
+    },
+    {
+        "id_usuario": 5,
+        "id_tema": 8,
+        "rating": 4
+    },
+    {
+        "id_usuario": 5,
+        "id_tema": 9,
+        "rating": 3
+    },
+    {
+        "id_usuario": 5,
+        "id_tema": 10,
+        "rating": 5
+    }
+]

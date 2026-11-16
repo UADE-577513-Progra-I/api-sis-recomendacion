@@ -1,0 +1,177 @@
+[
+    {
+        "id_rating": 1,
+        "id_usuario": 1,
+        "id_tema": 5,
+        "rating": 2,
+        "fecha": "2026-10-01"
+    },
+    {
+        "id_rating": 2,
+        "id_usuario": 4,
+        "id_tema": 3,
+        "rating": 2,
+        "fecha": "2026-10-01"
+    },
+    {
+        "id_rating": 3,
+        "id_usuario": 1,
+        "id_tema": 10,
+        "rating": 5,
+        "fecha": "2026-10-02"
+    },
+    {
+        "id_rating": 4,
+        "id_usuario": 4,
+        "id_tema": 7,
+        "rating": 4,
+        "fecha": "2026-10-02"
+    },
+    {
+        "id_rating": 5,
+        "id_usuario": 2,
+        "id_tema": 7,
+        "rating": 3,
+        "fecha": "2026-10-04"
+    },
+    {
+        "id_rating": 6,
+        "id_usuario": 1,
+        "id_tema": 9,
+        "rating": 4,
+        "fecha": "2026-10-05"
+    },
+    {
+        "id_rating": 7,
+        "id_usuario": 4,
+        "id_tema": 8,
+        "rating": 2,
+        "fecha": "2026-10-05"
+    },
+    {
+        "id_rating": 8,
+        "id_usuario": 1,
+        "id_tema": 8,
+        "rating": 4,
+        "fecha": "2026-10-08"
+    },
+    {
+        "id_rating": 9,
+        "id_usuario": 2,
+        "id_tema": 4,
+        "rating": 4,
+        "fecha": "2026-10-08"
+    },
+    {
+        "id_rating": 10,
+        "id_usuario": 4,
+        "id_tema": 2,
+        "rating": 3,
+        "fecha": "2026-10-09"
+    },
+    {
+        "id_rating": 11,
+        "id_usuario": 5,
+        "id_tema": 2,
+        "rating": 4,
+        "fecha": "2026-10-09"
+    },
+    {
+        "id_rating": 12,
+        "id_usuario": 3,
+        "id_tema": 5,
+        "rating": 4,
+        "fecha": "2026-10-10"
+    },
+    {
+        "id_rating": 13,
+        "id_usuario": 5,
+        "id_tema": 9,
+        "rating": 3,
+        "fecha": "2026-10-15"
+    },
+    {
+        "id_rating": 14,
+        "id_usuario": 2,
+        "id_tema": 2,
+        "rating": 4,
+        "fecha": "2026-10-16"
+    },
+    {
+        "id_rating": 15,
+        "id_usuario": 5,
+        "id_tema": 8,
+        "rating": 4,
+        "fecha": "2026-10-16"
+    },
+    {
+        "id_rating": 16,
+        "id_usuario": 3,
+        "id_tema": 10,
+        "rating": 3,
+        "fecha": "2026-10-17"
+    },
+    {
+        "id_rating": 17,
+        "id_usuario": 5,
+        "id_tema": 10,
+        "rating": 5,
+        "fecha": "2026-10-17"
+    },
+    {
+        "id_rating": 18,
+        "id_usuario": 3,
+        "id_tema": 8,
+        "rating": 4,
+        "fecha": "2026-10-18"
+    },
+    {
+        "id_rating": 19,
+        "id_usuario": 1,
+        "id_tema": 7,
+        "rating": 4,
+        "fecha": "2026-10-19"
+    },
+    {
+        "id_rating": 20,
+        "id_usuario": 2,
+        "id_tema": 9,
+        "rating": 3,
+        "fecha": "2026-10-21"
+    },
+    {
+        "id_rating": 21,
+        "id_usuario": 3,
+        "id_tema": 9,
+        "rating": 3,
+        "fecha": "2026-10-21"
+    },
+    {
+        "id_rating": 22,
+        "id_usuario": 4,
+        "id_tema": 9,
+        "rating": 3,
+        "fecha": "2026-10-21"
+    },
+    {
+        "id_rating": 23,
+        "id_usuario": 3,
+        "id_tema": 4,
+        "rating": 3,
+        "fecha": "2026-10-22"
+    },
+    {
+        "id_rating": 24,
+        "id_usuario": 2,
+        "id_tema": 10,
+        "rating": 5,
+        "fecha": "2026-10-23"
+    },
+    {
+        "id_rating": 25,
+        "id_usuario": 5,
+        "id_tema": 3,
+        "rating": 3,
+        "fecha": "2026-10-23"
+    }
+]

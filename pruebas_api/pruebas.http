@@ -1,0 +1,40 @@
+### ==========================================================
+### Pruebas de la API — extensión REST Client de VS Code
+### Hacé clic en "Send Request" arriba de cada petición.
+### Para PythonAnywhere, cambiá @baseUrl por tu dominio.
+### ==========================================================
+
+@baseUrl = http://127.0.0.1:5000
+
+### Inicio: lista de endpoints
+GET {{baseUrl}}/
+
+### Usuarios
+GET {{baseUrl}}/usuarios
+
+### Temas
+GET {{baseUrl}}/temas
+
+### Ratings con username, tema y autor
+GET {{baseUrl}}/ratings
+
+### Recomendaciones de todos los usuarios
+GET {{baseUrl}}/recomendaciones
+
+### Recomendaciones del usuario 1
+GET {{baseUrl}}/recomendaciones/1
+
+### Reproducible: ejecutalo dos veces y compará
+GET {{baseUrl}}/recomendaciones/1?seed=42
+
+### CSV para Kaggle
+GET {{baseUrl}}/recomendaciones.csv?seed=42
+
+### Error: usuario inexistente (404)
+GET {{baseUrl}}/recomendaciones/99
+
+### Error: seed inválido (400)
+GET {{baseUrl}}/recomendaciones?seed=abc
+
+### Error: URL inexistente (404)
+GET {{baseUrl}}/canciones

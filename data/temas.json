@@ -1,0 +1,52 @@
+[
+    {
+        "id_tema": 1,
+        "nombre": "Dai Dai",
+        "autor": "Shakira"
+    },
+    {
+        "id_tema": 2,
+        "nombre": "Swim",
+        "autor": "BTS"
+    },
+    {
+        "id_tema": 3,
+        "nombre": "Choosin' Texas",
+        "autor": "Ella Langley"
+    },
+    {
+        "id_tema": 4,
+        "nombre": "DTMF",
+        "autor": "Bad Bunny"
+    },
+    {
+        "id_tema": 5,
+        "nombre": "Janice STFU",
+        "autor": "Drake"
+    },
+    {
+        "id_tema": 6,
+        "nombre": "Golden",
+        "autor": "HUNTR/X"
+    },
+    {
+        "id_tema": 7,
+        "nombre": "The Fate of Ophelia",
+        "autor": "Taylor Swift"
+    },
+    {
+        "id_tema": 8,
+        "nombre": "Manchild",
+        "autor": "Sabrina Carpenter"
+    },
+    {
+        "id_tema": 9,
+        "nombre": "Ordinary",
+        "autor": "Alex Warren"
+    },
+    {
+        "id_tema": 10,
+        "nombre": "Die With A Smile",
+        "autor": "Lady Gaga, Bruno Mars"
+    }
+]

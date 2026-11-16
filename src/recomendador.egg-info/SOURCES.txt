@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+src/recomendador/__init__.py
+src/recomendador/__main__.py
+src/recomendador/api.py
+src/recomendador/interface.py
+src/recomendador/services.py
+src/recomendador/storage.py
+src/recomendador/utils.py
+src/recomendador.egg-info/PKG-INFO
+src/recomendador.egg-info/SOURCES.txt
+src/recomendador.egg-info/dependency_links.txt
+src/recomendador.egg-info/entry_points.txt
+src/recomendador.egg-info/requires.txt
+src/recomendador.egg-info/top_level.txt
+src/recomendador/static/openapi.yaml

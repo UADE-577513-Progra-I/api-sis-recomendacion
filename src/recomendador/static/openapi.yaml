@@ -1,0 +1,196 @@
+openapi: 3.0.3
+info:
+  title: Sistema de Recomendación Musical
+  version: 0.1.0
+  description: |
+    API del sistema de recomendación de Programación I (UADE).
+
+    Lee usuarios, temas y ratings desde archivos JSON y genera
+    recomendaciones con predicciones **aleatorias**.
+    Usá el parámetro `seed` para obtener resultados reproducibles.
+servers:
+  - url: /
+    description: Servidor actual
+
+tags:
+  - name: Datos
+    description: Lectura de los archivos JSON
+  - name: Recomendaciones
+    description: Generación de recomendaciones random
+
+paths:
+  /usuarios:
+    get:
+      tags: [Datos]
+      summary: Listar usuarios
+      responses:
+        "200":
+          description: Lista de usuarios ordenada por id
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/Usuario" }
+        "500": { $ref: "#/components/responses/ErrorArchivo" }
+
+  /temas:
+    get:
+      tags: [Datos]
+      summary: Listar temas
+      responses:
+        "200":
+          description: Lista de temas ordenada por id
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/Tema" }
+        "500": { $ref: "#/components/responses/ErrorArchivo" }
+
+  /ratings:
+    get:
+      tags: [Datos]
+      summary: Listar ratings con usuario y tema
+      description: Une cada rating con el username del usuario y el nombre y autor del tema.
+      responses:
+        "200":
+          description: Lista de ratings detallados
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/RatingDetallado" }
+        "500": { $ref: "#/components/responses/ErrorArchivo" }
+
+  /recomendaciones:
+    get:
+      tags: [Recomendaciones]
+      summary: Recomendaciones de todos los usuarios
+      description: Para cada usuario, los temas que no calificó ordenados por score aleatorio (1 a 5).
+      parameters:
+        - $ref: "#/components/parameters/Seed"
+      responses:
+        "200":
+          description: Una entrada por usuario
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/RecomendacionUsuario" }
+        "400": { $ref: "#/components/responses/ErrorParametro" }
+        "500": { $ref: "#/components/responses/ErrorArchivo" }
+
+  /recomendaciones/{id_usuario}:
+    get:
+      tags: [Recomendaciones]
+      summary: Recomendaciones de un usuario
+      parameters:
+        - name: id_usuario
+          in: path
+          required: true
+          schema: { type: integer, example: 1 }
+        - $ref: "#/components/parameters/Seed"
+      responses:
+        "200":
+          description: Recomendaciones del usuario
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/RecomendacionUsuario" }
+        "400": { $ref: "#/components/responses/ErrorParametro" }
+        "404":
+          description: El usuario no existe
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Error" }
+              example: { error: "No existe el usuario con id 99." }
+        "500": { $ref: "#/components/responses/ErrorArchivo" }
+
+  /recomendaciones.csv:
+    get:
+      tags: [Recomendaciones]
+      summary: Descargar el CSV para Kaggle
+      description: Formato `id,rating`, con `id = <id_usuario>_<id_tema>`. Una fila por cada par no calificado.
+      parameters:
+        - $ref: "#/components/parameters/Seed"
+      responses:
+        "200":
+          description: Archivo recomendacion.csv
+          content:
+            text/csv:
+              schema: { type: string }
+              example: |
+                id,rating
+                1_6,5
+                1_3,4
+        "400": { $ref: "#/components/responses/ErrorParametro" }
+        "500": { $ref: "#/components/responses/ErrorArchivo" }
+
+components:
+  parameters:
+    Seed:
+      name: seed
+      in: query
+      required: false
+      description: Semilla aleatoria. Con el mismo valor, se obtienen las mismas recomendaciones.
+      schema: { type: integer, minimum: 0, example: 42 }
+
+  responses:
+    ErrorParametro:
+      description: Parámetro inválido
+      content:
+        application/json:
+          schema: { $ref: "#/components/schemas/Error" }
+          example: { error: "El parámetro seed debe ser un número entero positivo." }
+    ErrorArchivo:
+      description: No se pudo leer un archivo de datos
+      content:
+        application/json:
+          schema: { $ref: "#/components/schemas/Error" }
+          example: { error: "No se encontró el archivo: .../data/temas.json" }
+
+  schemas:
+    Usuario:
+      type: object
+      properties:
+        id_usuario: { type: integer, example: 1 }
+        username: { type: string, example: franco_m }
+
+    Tema:
+      type: object
+      properties:
+        id_tema: { type: integer, example: 1 }
+        nombre: { type: string, example: Dai Dai }
+        autor: { type: string, example: Shakira }
+
+    RatingDetallado:
+      type: object
+      properties:
+        id_rating: { type: integer, example: 1 }
+        username: { type: string, example: franco_m }
+        tema: { type: string, example: Janice STFU }
+        autor: { type: string, example: Drake }
+        rating: { type: integer, minimum: 1, maximum: 5, example: 2 }
+        fecha: { type: string, format: date, example: "2026-10-01" }
+
+    Recomendacion:
+      type: object
+      properties:
+        posicion: { type: integer, example: 1 }
+        id_tema: { type: integer, example: 6 }
+        nombre: { type: string, example: Golden }
+        autor: { type: string, example: HUNTR/X }
+        score: { type: integer, minimum: 1, maximum: 5, example: 5 }
+
+    RecomendacionUsuario:
+      type: object
+      properties:
+        id_usuario: { type: integer, example: 1 }
+        username: { type: string, example: franco_m }
+        recomendaciones:
+          type: array
+          items: { $ref: "#/components/schemas/Recomendacion" }
+
+    Error:
+      type: object
+      properties:
+        error: { type: string }
